@@ -6,6 +6,25 @@ interface UseFetchResult<T> {
   error: string | null;
 }
 
+  /**
+   * A React hook that fetches data from a URL and stores the response in state.
+   *
+   * The hook returns an object with three properties: `data`, `loading`, and
+   * `error`. `data` is the response from the fetch, or null if the fetch has not
+   * completed. `loading` is a boolean indicating whether the fetch is in
+   * progress. `error` is an error message if the fetch failed, or null if the
+   * fetch succeeded.
+   *
+   * The hook accepts a single argument, `url`, which is the URL to fetch.
+   *
+   * The hook uses the `useState` and `useEffect` hooks to manage the state of the
+   * fetch. The `useEffect` hook is used to fire the fetch request when the
+   * component mounts, and to clean up the fetch request when the component is
+   * unmounted.
+   *
+   * The hook also uses an `AbortController` to abort the fetch if the component
+   * is unmounted before the fetch completes.
+   */
 export function useFetch<T>(url: string): UseFetchResult<T> {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);

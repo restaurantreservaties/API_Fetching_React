@@ -1,4 +1,3 @@
-import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Method1FetchUseEffect } from './components/Method1FetchUseEffect';
 import { Method2AsyncAwaitUseEffect } from './components/Method2AsyncAwaitUseEffect';
