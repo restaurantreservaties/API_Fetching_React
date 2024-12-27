@@ -21,7 +21,6 @@ export const Method4CustomHook = () => {
   if (error) return <div>Error: {error}</div>;
   if (!posts) return null;
 
-  return (
-    <PostMapper posts={posts} />
-  );
+  return <PostMapper posts={posts} />
+
 };

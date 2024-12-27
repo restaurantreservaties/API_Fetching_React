@@ -15,9 +15,16 @@ import { PostMapper } from './PostMapper';
  */
 export const Method3TanstackQuery = () => {
   const { data: posts, isLoading, error } = useQuery<Post[]>({
+
+    /**
+     * The query key is used to identify the query and determine whether it should
+     * be refetched. In this case, the query key is an array containing the query
+     * key constant and the limit constant. This means that the query will be
+     * refetched if the limit constant changes.
+     */
     queryKey: queryKey,
     /**
-     * Fetches the posts from the API. The fetch is memoized by TanStack's
+     * The query function Fetches the posts from the API. The fetch is memoized by TanStack's
      * `useQuery` hook. If the fetch fails, an error is thrown. The response is
      * expected to be a JSON array of posts.
      */
@@ -32,7 +39,5 @@ export const Method3TanstackQuery = () => {
   if (error) return <div>Error: {error.message}</div>;
   if (!posts) return null;
 
-  return (
-      <PostMapper posts={posts} />
-    );
+  return <PostMapper posts={posts} />
 };
